@@ -25,7 +25,7 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation ('junit:junit:4.12', 'org.mockito:mockito-core:2.21.0')
     
     //for yaml parsing
     implementation "com.fasterxml.jackson.core:jackson-databind:2.10.3"
