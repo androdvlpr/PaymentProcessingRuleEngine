@@ -1,7 +1,7 @@
 # PaymentProcessingRuleEngine
 PaymentProcessingRuleEngine: This is simple rule engine framework to process the payment based on product category
 
-#following are the use-cases
+# following are the use-cases
 - If the payment is for a physical product, generate a packing slip for shipping.
 - If the payment is for a book, create a duplicate packing slip for the royalty department.
 - If the payment is for a membership, activate that membership.
