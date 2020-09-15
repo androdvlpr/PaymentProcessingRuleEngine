@@ -4,41 +4,41 @@ import java.util.HashSet;
 
 public class Order{
 	
-	private final Customer customer;
-	private HashSet<String> listOfStockKeepingUnits;
-	private final LineItem[] lineItems;
-	private final Agent agent;
+	private final Customer m_customer;
+	private HashSet<String> m_listOfItemsInStock;
+	private final AvailableItem[] m_AvailableItems;
+	private final Agent m_agent;
 	
-    public Order(final Customer customer, final LineItem[] lineItems, final Agent agent) throws IllegalArgumentException {
-        if (lineItems == null || lineItems.length == 0) {
+    public Order(final Customer customer, final AvailableItem[] availableItems, final Agent agent) throws IllegalArgumentException {
+        if (availableItems == null || availableItems.length == 0) {
         	throw new IllegalArgumentException("line items are required");
         }
         
-        this.lineItems = lineItems;
-        this.customer = customer;
-        this.agent = agent;
+        this.m_AvailableItems = availableItems;
+        this.m_customer = customer;
+        this.m_agent = agent;
 
-        listOfStockKeepingUnits = new HashSet<String>();
+        m_listOfItemsInStock = new HashSet<String>();
     }
 
     public Customer getCustomer(){
-        return customer;
+        return m_customer;
     }
 
-    public LineItem[] getLineItems(){
-        return lineItems;
+    public AvailableItem[] getItemsInStock(){
+        return m_AvailableItems;
     }
 
 	public Agent getAgent() {
-		return agent;
+		return m_agent;
     }
     
-	public void addGiftBySku(String sStockKeepingUnit) {
-        if(!listOfStockKeepingUnits.contains(sStockKeepingUnit))
-            listOfStockKeepingUnits.add(sStockKeepingUnit);
+	public void addGiftBySku(String sAvailableUnitInStock) {
+        if(!m_listOfItemsInStock.contains(sAvailableUnitInStock))
+            m_listOfItemsInStock.add(sAvailableUnitInStock);
     }
     
-    public String[] getGiftSkus(){
-        return listOfStockKeepingUnits.toArray(new String[0]);
+    public String[] getGiftOfStocksInUnit(){
+        return m_listOfItemsInStock.toArray(new String[0]);
     }
 }

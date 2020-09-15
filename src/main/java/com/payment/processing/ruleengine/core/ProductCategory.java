@@ -4,14 +4,14 @@
 package com.payment.processing.ruleengine.core;
 
 public class ProductCategory {
-	public final String sProductCategory;
+	public final String m_sProductCategory;
 
-	private ProductCategory(final String name) {
-		sProductCategory = name;
+	private ProductCategory(final String sProductCategoryName) {
+		m_sProductCategory = sProductCategoryName;
 	}
 
-	public String getName() {
-		return sProductCategory;
+	public String getProductCategory() {
+		return m_sProductCategory;
 	}
 
 	public static final ProductCategory Membership = new ProductCategory("membership");

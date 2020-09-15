@@ -16,14 +16,14 @@ import com.payment.processing.ruleengine.payment.handler.iface.IPaymentHandler;
 public class AgentCommissionHandlerTests{
     @Test
     public void runShouldNotGenerateAgentCommissionIfItemsInvalid(){
-        LineItem[] lineItems = new LineItem[]{
-            new LineItem("item", "item", new ProductCategory[]{
+        AvailableItem[] availableItems = new AvailableItem[]{
+            new AvailableItem("item", "item", new ProductCategory[]{
                 ProductCategory.Membership,
             })
         };
         Customer customer = mock(Customer.class);
         Agent agent = mock(Agent.class);
-        Order order = new Order(customer, lineItems, agent);
+        Order order = new Order(customer, availableItems, agent);
         Payment payment = new Payment(order);
 
         IPaymentHandler paymentHandler = new AgentCommissionHandler();
@@ -34,17 +34,17 @@ public class AgentCommissionHandlerTests{
 
     @Test
     public void runShouldGenerateAgentCommissionIfBookInOrder(){
-        LineItem[] lineItems = new LineItem[]{
-            new LineItem("item", "item", new ProductCategory[]{
+        AvailableItem[] availableItems = new AvailableItem[]{
+            new AvailableItem("item", "item", new ProductCategory[]{
                 ProductCategory.Membership
             }),
-            new LineItem("book1", "book1", new ProductCategory[]{
+            new AvailableItem("book1", "book1", new ProductCategory[]{
                 ProductCategory.Books
             })
         };
         Customer customer = mock(Customer.class);
         Agent agent = mock(Agent.class);
-        Order order = new Order(customer, lineItems, agent);
+        Order order = new Order(customer, availableItems, agent);
         Payment payment = new Payment(order);
 
         IPaymentHandler paymentHandler = new AgentCommissionHandler();
@@ -55,20 +55,20 @@ public class AgentCommissionHandlerTests{
 
     @Test
     public void runShouldGenerateAgentCommissionOnceIfMultipleBooksInOrder(){
-        LineItem[] lineItems = new LineItem[]{
-            new LineItem("book1", "book1", new ProductCategory[]{
+        AvailableItem[] availableItems = new AvailableItem[]{
+            new AvailableItem("book1", "book1", new ProductCategory[]{
                 ProductCategory.Books
             }),
-            new LineItem("book2", "book2", new ProductCategory[]{
+            new AvailableItem("book2", "book2", new ProductCategory[]{
                 ProductCategory.Books
             }),
-            new LineItem("book3", "book3", new ProductCategory[]{
+            new AvailableItem("book3", "book3", new ProductCategory[]{
                 ProductCategory.Books
             })
         };
         Customer customer = mock(Customer.class);
         Agent agent = mock(Agent.class);
-        Order order = new Order(customer, lineItems, agent);
+        Order order = new Order(customer, availableItems, agent);
         Payment payment = new Payment(order);
 
         IPaymentHandler paymentHandler = new AgentCommissionHandler();
@@ -79,17 +79,17 @@ public class AgentCommissionHandlerTests{
 
     @Test
     public void runShouldGenerateAgentCommissionIfPhysicalItemInOrder(){
-        LineItem[] lineItems = new LineItem[]{
-            new LineItem("item", "item", new ProductCategory[]{
+        AvailableItem[] availableItems = new AvailableItem[]{
+            new AvailableItem("item", "item", new ProductCategory[]{
                 ProductCategory.Physical
             }),
-            new LineItem("membership", "membership", new ProductCategory[]{
+            new AvailableItem("membership", "membership", new ProductCategory[]{
                 ProductCategory.Membership
             })
         };
         Customer customer = mock(Customer.class);
         Agent agent = mock(Agent.class);
-        Order order = new Order(customer, lineItems, agent);
+        Order order = new Order(customer, availableItems, agent);
         Payment payment = new Payment(order);
 
         IPaymentHandler paymentHandler = new AgentCommissionHandler();

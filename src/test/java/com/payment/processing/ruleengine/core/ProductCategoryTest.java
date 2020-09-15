@@ -24,10 +24,10 @@ public class ProductCategoryTest {
 	@Test
 	public void getCategoryList() {
 		ArrayList<String> listOfProduct = new ArrayList<String>();
-		listOfProduct.add(ProductCategory.Books.getName());
-		listOfProduct.add(ProductCategory.Physical.getName());
-		listOfProduct.add(ProductCategory.Membership.getName());
-		listOfProduct.add(ProductCategory.Video.getName());
+		listOfProduct.add(ProductCategory.Books.getProductCategory());
+		listOfProduct.add(ProductCategory.Physical.getProductCategory());
+		listOfProduct.add(ProductCategory.Membership.getProductCategory());
+		listOfProduct.add(ProductCategory.Video.getProductCategory());
 		try {
 			YmlConfiguration ymlConfiguration = m_Mapper.readValue(new File(m_fbaseDir, "product_category.yml"), YmlConfiguration.class);
 			assertEquals(ymlConfiguration.getRoles(), listOfProduct);
@@ -42,10 +42,10 @@ public class ProductCategoryTest {
 	@Test
 	public void getCategoryListforNegativeTest() {
 		ArrayList<String> listOfProduct = new ArrayList<String>();
-		listOfProduct.add(ProductCategory.Books.getName());
-		listOfProduct.add(ProductCategory.Physical.getName());
-		listOfProduct.add(ProductCategory.Membership.getName());
-		listOfProduct.add(ProductCategory.Video.getName());
+		listOfProduct.add(ProductCategory.Books.getProductCategory());
+		listOfProduct.add(ProductCategory.Physical.getProductCategory());
+		listOfProduct.add(ProductCategory.Membership.getProductCategory());
+		listOfProduct.add(ProductCategory.Video.getProductCategory());
 		try {
 			YmlConfiguration ymlConfiguration = m_Mapper.readValue(new File(m_fbaseDir, "product_category_negative.yml"), YmlConfiguration.class);
 			assertFalse(ymlConfiguration.getRoles().equals(listOfProduct));
