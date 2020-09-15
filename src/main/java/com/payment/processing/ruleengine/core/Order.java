@@ -33,12 +33,12 @@ public class Order{
 		return m_agent;
     }
     
-	public void addGiftBySku(String sAvailableUnitInStock) {
+	public void addGiftByAvailableItemInUnit(String sAvailableUnitInStock) {
         if(!m_listOfItemsInStock.contains(sAvailableUnitInStock))
             m_listOfItemsInStock.add(sAvailableUnitInStock);
     }
     
-    public String[] getGiftOfStocksInUnit(){
+    public String[] getGiftbyStockInUnit(){
         return m_listOfItemsInStock.toArray(new String[0]);
     }
 }

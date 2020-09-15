@@ -16,15 +16,16 @@ import com.payment.processing.ruleengine.payment.handler.iface.IPaymentHandler;
 import com.payment.processing.ruleengine.services.iface.INotificationService;
 
 public class MembershipActivateHandlerTests{
+	
     @Test
-    public void runShouldDoNothingIfNoMembershipsInOrder() throws Exception {
-        AvailableItem[] lineItems = new AvailableItem[]{
+    public void doNothingIfNoMembershipsInOrderTest() throws Exception {
+        AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("item1", "item1", new ProductCategory[]{
                 ProductCategory.Physical
             })
         };
         Customer customer = mock(Customer.class);
-        Order order = new Order(customer, lineItems, null);
+        Order order = new Order(customer, availableItems, null);
         Payment payment = new Payment(order);
 
         IMembershipDatabase service = mock(IMembershipDatabase.class);
@@ -36,14 +37,14 @@ public class MembershipActivateHandlerTests{
     }
 
     @Test
-    public void runShouldActivateMembershipIfInOrder() throws Exception {
-        AvailableItem[] lineItems = new AvailableItem[]{
+    public void activateMembershipIfInOrderTest() throws Exception {
+        AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("item1", "item1", new ProductCategory[]{
                 ProductCategory.Membership
             })
         };
         Customer customer = mock(Customer.class);
-        Order order = new Order(customer, lineItems, null);
+        Order order = new Order(customer, availableItems, null);
         Payment payment = new Payment(order);
 
         IMembershipDatabase repo = mock(IMembershipDatabase.class);
@@ -59,14 +60,14 @@ public class MembershipActivateHandlerTests{
     }
 
     @Test
-    public void runShouldNotifyCustomer() throws Exception {
-        AvailableItem[] lineItems = new AvailableItem[]{
+    public void notifyCustomerTest() throws Exception {
+        AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("item1", "item1", new ProductCategory[]{
                 ProductCategory.Membership
             })
         };
         Customer customer = spy(Customer.class);
-        Order order = new Order(customer, lineItems, null);
+        Order order = new Order(customer, availableItems, null);
         Payment payment = new Payment(order);
 
         IMembershipDatabase repo = mock(IMembershipDatabase.class);

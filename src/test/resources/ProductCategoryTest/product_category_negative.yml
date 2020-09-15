@@ -1,6 +1,6 @@
-roles:
+productCategory:
   - books
   - physical
   - membership
-  - video
+  - videos
   - license

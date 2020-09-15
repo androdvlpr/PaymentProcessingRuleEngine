@@ -22,15 +22,15 @@ public class ProductCategoryTest {
 	 * positive test case for the list of product category
 	 */
 	@Test
-	public void getCategoryList() {
+	public void testToGetCategoryList() {
 		ArrayList<String> listOfProduct = new ArrayList<String>();
 		listOfProduct.add(ProductCategory.Books.getProductCategory());
 		listOfProduct.add(ProductCategory.Physical.getProductCategory());
 		listOfProduct.add(ProductCategory.Membership.getProductCategory());
-		listOfProduct.add(ProductCategory.Video.getProductCategory());
+		listOfProduct.add(ProductCategory.Videos.getProductCategory());
 		try {
 			YmlConfiguration ymlConfiguration = m_Mapper.readValue(new File(m_fbaseDir, "product_category.yml"), YmlConfiguration.class);
-			assertEquals(ymlConfiguration.getRoles(), listOfProduct);
+			assertEquals(ymlConfiguration.getProductCategory(), listOfProduct);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -45,10 +45,10 @@ public class ProductCategoryTest {
 		listOfProduct.add(ProductCategory.Books.getProductCategory());
 		listOfProduct.add(ProductCategory.Physical.getProductCategory());
 		listOfProduct.add(ProductCategory.Membership.getProductCategory());
-		listOfProduct.add(ProductCategory.Video.getProductCategory());
+		listOfProduct.add(ProductCategory.Videos.getProductCategory());
 		try {
 			YmlConfiguration ymlConfiguration = m_Mapper.readValue(new File(m_fbaseDir, "product_category_negative.yml"), YmlConfiguration.class);
-			assertFalse(ymlConfiguration.getRoles().equals(listOfProduct));
+			assertFalse(ymlConfiguration.getProductCategory().equals(listOfProduct));
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

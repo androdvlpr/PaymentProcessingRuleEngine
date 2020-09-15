@@ -1,13 +1,13 @@
 package com.payment.processing.ruleengine.core;
 
 public class Product{
-	private String m_sStockKeepingUnit;
+	private String m_sStockInUnit;
 
 	public Product(String sStockKeepingUnit){
-        m_sStockKeepingUnit = sStockKeepingUnit;
+        m_sStockInUnit = sStockKeepingUnit;
     }
 
-    public String getSku(){
-        return m_sStockKeepingUnit;
+    public String getStockInUnit(){
+        return m_sStockInUnit;
     }
 }

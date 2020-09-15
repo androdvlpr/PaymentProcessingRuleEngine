@@ -15,7 +15,7 @@ import com.payment.processing.ruleengine.payment.handler.iface.IPaymentHandler;
 
 public class AgentCommissionHandlerTests{
     @Test
-    public void runShouldNotGenerateAgentCommissionIfItemsInvalid(){
+    public void notGenerateAgentCommissionIfItemsInvalidTest(){
         AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("item", "item", new ProductCategory[]{
                 ProductCategory.Membership,
@@ -33,7 +33,7 @@ public class AgentCommissionHandlerTests{
     }
 
     @Test
-    public void runShouldGenerateAgentCommissionIfBookInOrder(){
+    public void generateAgentCommissionIfBookInOrderTest(){
         AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("item", "item", new ProductCategory[]{
                 ProductCategory.Membership
@@ -54,7 +54,7 @@ public class AgentCommissionHandlerTests{
     }
 
     @Test
-    public void runShouldGenerateAgentCommissionOnceIfMultipleBooksInOrder(){
+    public void generateAgentCommissionOnceIfMultipleBooksInOrderTest(){
         AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("book1", "book1", new ProductCategory[]{
                 ProductCategory.Books
@@ -78,7 +78,7 @@ public class AgentCommissionHandlerTests{
     }
 
     @Test
-    public void runShouldGenerateAgentCommissionIfPhysicalItemInOrder(){
+    public void generateAgentCommissionIfPhysicalItemInOrderTest(){
         AvailableItem[] availableItems = new AvailableItem[]{
             new AvailableItem("item", "item", new ProductCategory[]{
                 ProductCategory.Physical

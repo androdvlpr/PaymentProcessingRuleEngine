@@ -5,14 +5,14 @@ import java.util.List;
 
 public class YmlConfiguration {
 
-	private List<String> roles = new ArrayList<>();
+	private List<String> productCategory = new ArrayList<>();
 
-	public List<String> getRoles() {
-		return roles;
+	public List<String> getProductCategory() {
+		return productCategory;
 	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
+	public void setProductCategory(List<String> productCategory) {
+		this.productCategory = productCategory;
 	}
 	
 }
